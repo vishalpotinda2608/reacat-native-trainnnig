@@ -28,8 +28,9 @@ console.log(counter)
              <TextInput  style={styles.textbox} value={password} secureTextEntry={true} placeholder='enter password' onChangeText={(ev)=>setPassword(ev)} />
               <View style={{marginTop:6}}>
               <Button  title="Login"  onPress={loginHandler} />
+
               </View>
-                         {/* <LoadingButton/> */}
+          
          </View>
        </View>
   )
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     },
     h1:{
         fontSize:24
-    },
+    },  
     button:{
 
     },
