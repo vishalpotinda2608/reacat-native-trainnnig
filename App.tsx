@@ -1,31 +1,36 @@
-import {  Button, Text,StyleSheet, TextInput, View} from 'react-native'
+import { Button, Text, StyleSheet, TextInput, View, SafeAreaView } from 'react-native'
 import React from 'react'
-import Add from './componenets/Add'
-import {demo,demo2} from './componenets/Utility'
-const App = () => {
+import Home from './src/Views/Home/Home'
+import Login from './src/Views/Login/Login'
+
+function App(){
   return (
-    <View>
-      <View style={styles.add}>
-          <Text style={{textAlign:'center',fontWeight:'bold'}}>Student</Text>
-          <TextInput style={styles.input} />
-          <TextInput style={styles.input} />
-          <Button title='Add'  />
-      </View>
-    </View>
+    <SafeAreaView>
+    <Login />
+  </SafeAreaView>
   )
 }
+
+// const App = () => {
+//   return (
+//     <View>
+//       <Login />
+//     </View>
+//   )
+// }
 
 export default App
 
 const styles = StyleSheet.create({
-  add:{
-    backgroundColor:'gray',
-    margin:20
+  add: {
+    backgroundColor: 'gray',
+    margin: 20
   },
-input:{
-  backgroundColor:'white',
-  marginHorizontal:10,
-  marginVertical:5,
-  padding:10
-}
+  input: {
+    backgroundColor: 'white',
+    marginHorizontal: 10,
+    marginVertical: 5,
+    padding: 10
+  },
+  
 })
