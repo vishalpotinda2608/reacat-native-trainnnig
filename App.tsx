@@ -1,37 +1,35 @@
-import { Button, Text, StyleSheet, TextInput, View, SafeAreaView } from 'react-native'
-import React from 'react'
-import Home from './src/Views/Home/Home'
-import Login from './src/Views/Login/Login'
-import Register from './src/Views/Register/Register'
+import {
+  Button,
+  Text,
+  StyleSheet,
+  TextInput,
+  View,
+  SafeAreaView,
+} from "react-native";
+import React from "react";
+import Home from "./src/Views/Home/Home";
+import Login from "./src/Views/Login/Login";
+import Register from "./src/Views/Register/Register";
 
-function App(){
+const App = () => {
   return (
-    <SafeAreaView>
-    <Register/>
-      </SafeAreaView>
-  )
-}
+    <View>
+      <Register />
+    </View>
+  );
+};
 
-// const App = () => {
-//   return (
-//     <View>
-//       <Login />
-//     </View>
-//   )
-// }
-
-export default App
+export default App;
 
 const styles = StyleSheet.create({
   add: {
-    backgroundColor: 'gray',
-    margin: 20
+    backgroundColor: "gray",
+    margin: 20,
   },
   input: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     marginHorizontal: 10,
     marginVertical: 5,
-    padding: 10
+    padding: 10,
   },
-  
-})
+});
