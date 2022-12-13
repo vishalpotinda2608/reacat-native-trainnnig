@@ -1,0 +1,25 @@
+{
+  "student": [
+    {
+      "id": 1,
+      "name": "Vishal potinda",
+      "marks": 35
+    },
+    {
+      "id": 2,
+      "name": "Vishal potinda",
+      "marks": 35
+    },
+    {
+      "id": 3,
+      "name": "Nikhil",
+      "marks": 99
+    }
+  ],
+  "login": [
+    {
+      "username": "vishal",
+      "password": "123456"
+    }
+  ]
+}
