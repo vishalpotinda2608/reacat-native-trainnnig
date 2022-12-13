@@ -5,40 +5,29 @@ import LoadingButton from '../../Components/LoadingButton/LoadingButton'
 import { User } from '../../models/User.model';
 
 const Login = () => {
-  // const [email,setEmail]=useState('');
-  // const [password,setPassword]=useState('');
-  // const [users,setUsers]=useState<User[]>([]);
+  
+  const [email,setEmail]=useState('chandan');
+  const [password,setPassword]=useState('');
+  const [counter,setCounter]=useState(0);
 
+const loginHandler=()=>{
+console.log('login handler invoked');
+setCounter(counter+1);
+console.log(counter)
 
-  // const onChangeEmailHandler=(email)=>{
-
-  //   setEmail(email)
-    
-  // }
-
-
-  // const onPasswordChange=(password)=>{
-  // setPassword(password)
-    
-  // }
-
-  // const LoginHandler=()=>{
-  //   console.log({email,password});
-  //  setUsers((prev)=>[...prev,{email,password}]);
-  //  console.log(users);
-   
-    
-  // }
-
+}
 
   return (
     <View style={styles.container}>
          <Text style={styles.h1}> Login</Text>
          <View>
-             <TextInput style={styles.textbox} placeholder='enter email'/>
-             <TextInput  style={styles.textbox} secureTextEntry={true} placeholder='enter password'/>
+             <TextInput style={styles.textbox} value={email}  onChangeText={(ev)=>{
+              setEmail(ev);
+              console.log(email)
+             }} placeholder='enter email'/>
+             <TextInput  style={styles.textbox} value={password} secureTextEntry={true} placeholder='enter password' onChangeText={(ev)=>setPassword(ev)} />
               <View style={{marginTop:6}}>
-              <Button  title="Login" />
+              <Button  title="Login"  onPress={loginHandler} />
               </View>
                          {/* <LoadingButton/> */}
          </View>

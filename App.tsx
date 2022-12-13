@@ -2,12 +2,13 @@ import { Button, Text, StyleSheet, TextInput, View, SafeAreaView } from 'react-n
 import React from 'react'
 import Home from './src/Views/Home/Home'
 import Login from './src/Views/Login/Login'
+import Register from './src/Views/Register/Register'
 
 function App(){
   return (
     <SafeAreaView>
-    <Login />
-  </SafeAreaView>
+    <Register/>
+      </SafeAreaView>
   )
 }
 
