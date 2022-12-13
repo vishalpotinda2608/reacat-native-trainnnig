@@ -1,17 +1,21 @@
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
+import { User } from "../../models/User.model";
 
 const Register = () => {
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<User>({
     firstName: "",
     lastName: "",
     email: "",
     mobileNo: "",
     password: "",
   });
+  const [temp, setTemp] = useState<User[]>([]);
 
   const registerHandler = () => {
     console.log(user);
+    setTemp((prev) => [...prev, user]);
+    console.log(temp);
   };
 
   return (
@@ -22,7 +26,10 @@ const Register = () => {
           style={styles.textbox}
           value={user.firstName}
           onChangeText={(ev) => {
-            setUser({ ...user, firstName: ev });
+            setUser({
+              ...user,
+              firstName: ev,
+            });
           }}
           placeholder="First Name"
         />
@@ -59,7 +66,7 @@ const Register = () => {
           }}
           placeholder="Mobile No"
         />
-        <View style={{ marginTop: 6 }}>
+        <View style={styles.button}>
           <Button title="Login" onPress={registerHandler} />
         </View>
       </View>
@@ -73,7 +80,7 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     width: "100%",
-    backgroundColor: "blue",
+    backgroundColor: "#B388FF",
     display: "flex",
     flexDirection: "column",
     color: "white",
@@ -84,12 +91,16 @@ const styles = StyleSheet.create({
   h1: {
     fontSize: 24,
   },
-  button: {},
+  button: {
+    marginTop: 6,
+    borderRadius: 10,
+  },
   textbox: {
+    borderRadius: 10,
     padding: 10,
     lineHeight: 40,
     fontSize: 18,
-    backgroundColor: "white",
+    backgroundColor: "#ECEFF1",
     margin: 3,
   },
 });
