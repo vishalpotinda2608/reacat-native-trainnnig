@@ -8,11 +8,9 @@
 //     const todoHandler=(todo)=>{
 //        setTodos(prev=>[...prev,todo])
 //        props.onAddNewTodo(todo);
-       
-        
+
 //     }
 
-    
 //   return (
 //     <View>
 
@@ -30,22 +28,21 @@
 
 // const styles = StyleSheet.create({})
 
-import { Button, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Button, StyleSheet, Text, View } from "react-native";
+import React from "react";
 
 const ListTodo = (props) => {
-    const onNavigate=()=>{
-        props.navigation.navigate('register',{name:"ABC"})
-        
-    }
+  const onNavigate = () => {
+    props.navigation.navigate("register", { name: "ABC" });
+  };
   return (
     <View>
       <Text>ListTodo</Text>
-      <Button title="regiser" onPress={onNavigate} />
+      <Button title="register" onPress={onNavigate} />
     </View>
-  )
-}
+  );
+};
 
-export default ListTodo
+export default ListTodo;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
