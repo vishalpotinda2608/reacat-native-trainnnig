@@ -1,7 +1,10 @@
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Register = () => {
+  console.log("Regiter reloaded");
+
+
 
   const [user, setUser] = useState({
     firstName: '',
@@ -11,8 +14,13 @@ const Register = () => {
     password: ''
   })
 
+  useEffect(()=>{
+    console.log("Regiter loaded should execute only at first init");
+  
+  },[])
+
   const registerHandler = () => {
-console.log(user);
+    console.log(user);
   }
 
   return (

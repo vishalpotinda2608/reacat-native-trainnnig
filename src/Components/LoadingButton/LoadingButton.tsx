@@ -3,7 +3,7 @@ import React from 'react'
 
 const LoadingButton = () => {
   return (
-<Button
+  <Button
         title="Login"
         onPress={() => Alert.alert('Simple Button pressed')}
       />
