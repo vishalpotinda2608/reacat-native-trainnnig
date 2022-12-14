@@ -5,7 +5,7 @@ import AddTodo from './AddTodo'
 const ListTodo = (props) => {
 
     const todoHandler=(todo)=>{
-        console.log(todo);
+        props.todos.push(todo);
         
     }
   return (

@@ -6,6 +6,7 @@ const AddTodo = (props) => {
 
     const addTodos=()=>{
         props.onAddTodo(todo)
+        setTodos('')
     }
   return (
     <View>
