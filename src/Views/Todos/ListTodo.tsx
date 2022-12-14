@@ -1,17 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 import AddTodo from './AddTodo'
 
 const ListTodo = (props) => {
-
+const [todos,setTodos] = useState(props.todos)
     const todoHandler=(todo)=>{
-        props.todos.push(todo);
+       setTodos(prev=>[...prev,todo])
         
     }
   return (
     <View>
 
-     {props.todos.map((todo)=>{
+     {todos.map((todo)=>{
         return(
             <Text>{todo}</Text>
         )
