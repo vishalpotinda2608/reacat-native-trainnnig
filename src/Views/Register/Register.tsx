@@ -1,10 +1,14 @@
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
-const Register = () => {
-  console.log("Regiter reloaded");
+const Register = (props) => {
+  console.log("received theme color",props);
 
-
+  props.user.username="Nikhil"
+  // props.theme="blue"
+  console.log(props);
+  props.arr.push("ABC")
+  
 
   const [user, setUser] = useState({
     firstName: '',

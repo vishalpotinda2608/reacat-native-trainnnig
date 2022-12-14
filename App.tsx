@@ -4,11 +4,18 @@ import Home from './src/Views/Home/Home'
 import Login from './src/Views/Login/Login'
 import Register from './src/Views/Register/Register'
 import  {useEffect} from 'react'
+import ListTodo from './src/Views/Todos/ListTodo'
+
 
 function App(){
 console.log('app loaded')
+const [todos,setTodos]=useState(["Home work","Car Clean","Buy grossary","TimeSheet"])
   const [counter,setCounter]=useState(0)
   const [alert,setAlert]=useState();
+  const [user,setUser]=useState({
+    username:"vishal",
+    password:'123456'
+  })
 
 
   // useEffect(()=>{
@@ -29,7 +36,8 @@ console.log('app loaded')
 
   return (
     <SafeAreaView>
-       <Register />
+      <ListTodo todos={todos} />
+       {/* <Register theme="green " fontFamily="fansarif" user={user} arr={["NIlhi","fdjl","fdhf"]} /> */}
     </SafeAreaView>
   )
 }
