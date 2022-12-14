@@ -2,12 +2,14 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 const Register = (props) => {
-  console.log("received theme color",props);
+  console.log(props.route.params.name);
+  
+  // console.log("received theme color",props);
 
-  props.user.username="Nikhil"
-  // props.theme="blue"
-  console.log(props);
-  props.arr.push("ABC")
+  // props.user.username="Nikhil"
+  // // props.theme="blue"
+  // console.log(props);
+  // props.arr.push("ABC")
   
 
   const [user, setUser] = useState({
@@ -29,7 +31,7 @@ const Register = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.h1}> Register here</Text>
+      <Text style={styles.h1}> Register here {props.route.params.name} </Text>
       <View>
         <TextInput style={styles.textbox} value={user.firstName} onChangeText={(ev) => {
           setUser({ ...user, firstName: ev })
@@ -61,10 +63,9 @@ export default Register
 
 const styles = StyleSheet.create({
   container: {
-    height: '100vh',
-    width: '100vw',
+    flex:1,
+    alignItems:'center',
     backgroundColor: 'blue',
-    display: 'flex',
     flexDirection: 'column',
     color: 'white',
     padding: 10,
