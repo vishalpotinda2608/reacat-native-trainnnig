@@ -31,9 +31,8 @@
 import { Button, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const ListTodo = (props) => {
+const ListTodo = () => {
   const onNavigate = () => {
-    props.navigation.navigate("register", { name: "ABC" });
   };
   return (
     <View>

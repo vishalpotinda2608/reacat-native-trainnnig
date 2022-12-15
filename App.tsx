@@ -18,6 +18,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/FontAwesome5";
 const Tab = createBottomTabNavigator();
 
+import AuthService from "./src/Services/AuthService";
 import { createStackNavigator } from "@react-navigation/stack";
 import AddTodo from "./src/Views/Todos/AddTodo";
 import Settings from "./src/Views/Settings/Settings";
@@ -25,6 +26,17 @@ import Settings from "./src/Views/Settings/Settings";
 const Stack = createStackNavigator();
 
 function App() {
+
+AuthService.getAllUser()
+.then((res)=>{
+  console.log(res);
+  
+})
+
+
+
+
+
   console.log("app loaded");
   const [todos, setTodos] = useState([
     "Home work",
@@ -41,64 +53,9 @@ function App() {
 
   const [isLogged, setIsLogged] = useState(true);
 
-  // useEffect(()=>{
-  //   fetch('https://jsonplaceholder.typicode.com/todos')
-  //   .then(response => response.json())
-  //   .then(json => console.log(json))
-
-  // },[])
-
-  // const onIncrement=()=>{
-  //   setCounter(counter+1)
-  // }
-
-  // const onAlet=()=>{
-  //   console.log("STate change")
-  // }
-
-  // const onAddHandler=(todo)=>{
-  //   setTodos(prev=>[...prev,todo])
-  // }
-
+  
   return (
-    <NavigationContainer>
-      {/* <Stack.Navigator>
-        <Stack.Screen name="list" component={ListTodo} />
-        <Stack.Screen name="register" component={Register} />
-      </Stack.Navigator> */}
-      <Tab.Navigator initialRouteName="profile">
-        <Tab.Screen
-          name="todo"
-          component={ListTodo}
-          options={{
-            title: "Todo List",
-            tabBarIcon: ({ focused }) => {
-              return <Icon name="list" />;
-            },
-          }}
-        />
-        <Tab.Screen
-          name="add todo"
-          component={AddTodo}
-          options={{
-            title: "Add Todo ",
-            tabBarIcon: ({ focused }) => {
-              return <Icon name="plus-circle" />;
-            },
-          }}
-        />
-        <Tab.Screen
-          name="settings"
-          component={Settings}
-          options={{
-            title: "Settings",
-            tabBarIcon: ({ focused }) => {
-              return <Icon name="bars" />;
-            },
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Routes />
   );
 }
 

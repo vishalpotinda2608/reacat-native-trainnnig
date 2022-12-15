@@ -1,8 +1,7 @@
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-
+import AuthService from '../../Services/AuthService'
 const Register = (props) => {
-  console.log(props.route.params.name);
   
   // console.log("received theme color",props);
 
@@ -26,12 +25,17 @@ const Register = (props) => {
   },[])
 
   const registerHandler = () => {
-    console.log(user);
+      AuthService.onRegister(user)
+      .then((res)=>{
+        props.navigation.navigate('login')
+        console.log(res);
+        
+      })
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.h1}> Register here {props.route.params.name} </Text>
+      <Text style={styles.h1}> Register here </Text>
       <View>
         <TextInput style={styles.textbox} value={user.firstName} onChangeText={(ev) => {
           setUser({ ...user, firstName: ev })
@@ -50,7 +54,7 @@ const Register = (props) => {
           setUser({ ...user, mobileNo: ev })
         }} placeholder='Mobile No' />
         <View style={{ marginTop: 6 }}>
-          <Button title="Login" onPress={registerHandler} />
+          <Button title="Register" onPress={registerHandler} />
 
         </View>
 

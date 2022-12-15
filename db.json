@@ -1,25 +1,28 @@
 {
-  "student": [
+  "users": [
     {
-      "id": 1,
-      "name": "Vishal potinda",
-      "marks": 35
+      "firstName": "Vishal",
+      "lastName": "Potinda",
+      "email": "vpotinda@gmail.com",
+      "mobileNo": "8266576232",
+      "password": "yy7878979",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Vishal potinda",
-      "marks": 35
+      "firstName": "Nikhil",
+      "lastName": "Potfsdffsdfinda",
+      "email": "fds@gmail.com",
+      "mobileNo": "8266576232",
+      "password": "yy7878979",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Nikhil",
-      "marks": 99
-    }
-  ],
-  "login": [
-    {
-      "username": "vishal",
-      "password": "123456"
+      "firstName": "abc",
+      "lastName": "abc",
+      "email": "abc@gmail.com",
+      "mobileNo": "1234567890",
+      "password": "abc",
+      "id": 3
     }
   ]
 }

@@ -1,16 +1,19 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ListTodo from '../Views/Todos/ListTodo';
-import AddTodo from '../Views/Todos/AddTodo';
-const Tab = createBottomTabNavigator();
+import {createStackNavigator}from '@react-navigation/stack'
+
+import Login from '../Views/Login/Login';
+import Register from '../Views/Register/Register';
+import Tabs from './Tabs';
+const Stack = createStackNavigator();
 
 const Routes = () => {
     return (
         <NavigationContainer>
-            <Tab.Navigator initialRouteName='Add' >
-                <Tab.Screen name='List' component={ListTodo}></Tab.Screen>
-                <Tab.Screen name='Add' component={AddTodo}></Tab.Screen>
-            </Tab.Navigator>
+            <Stack.Navigator initialRouteName='login'>
+                <Stack.Screen name='login' component={Login} ></Stack.Screen>
+                <Stack.Screen name='register' component={Register}></Stack.Screen>
+                <Stack.Screen name="tabs" component={Tabs} options={{headerShown:false}}></Stack.Screen>
+            </Stack.Navigator>
         </NavigationContainer>
 
     )
