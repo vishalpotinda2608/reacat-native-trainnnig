@@ -1,8 +1,13 @@
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import {StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import AuthService from '../../Services/AuthService'
+import ValidationService from '../../Services/ValidationService/ValidationService'
+import Error from '../../Components/UI/Error/Error'
+import Input from '../../Components/UI/Input/Input'
+import Button from '../../Components/UI/Button/Button'
 const Register = (props) => {
   
+
   // console.log("received theme color",props);
 
   // props.user.username="Nikhil"
@@ -19,6 +24,7 @@ const Register = (props) => {
     password: ''
   })
 
+  const [isMobile, setIsMobile] = useState(true);
   useEffect(()=>{
     console.log("Regiter loaded should execute only at first init");
   
@@ -37,24 +43,46 @@ const Register = (props) => {
     <View style={styles.container}>
       <Text style={styles.h1}> Register here </Text>
       <View>
-        <TextInput style={styles.textbox} value={user.firstName} onChangeText={(ev) => {
+
+      <Input
+       value={user.firstName}
+       onChangeText={(ev) => {
+        setUser({ ...user, firstName: ev })}}
+        placeholder='First Name'
+       />
+
+
+        {/* <TextInput style={styles.textbox} value={user.firstName} onChangeText={(ev) => {
           setUser({ ...user, firstName: ev })
         }} placeholder='First Name' />
-        <TextInput style={styles.textbox} value={user.lastName} onChangeText={(ev) => {
+
+         */}
+        <Input  value={user.lastName} onChangeText={(ev) => {
           setUser({ ...user, lastName: ev })
-        }} placeholder='Last Name' />
-        <TextInput style={styles.textbox} value={user.email} onChangeText={(ev) => {
+        }} placeholder='Last Name' />\
+
+        <Input  value={user.email} onChangeText={(ev) => {
           setUser({ ...user, email: ev })
         }} placeholder='Email' />
-        <TextInput style={styles.textbox} value={user.password} 
+
+        <Input  value={user.password} 
         secureTextEntry={true} onChangeText={(ev) => {
           setUser({ ...user, password: ev })
         }} placeholder='Enter password' />
-        <TextInput style={styles.textbox} value={user.mobileNo} onChangeText={(ev) => {
-          setUser({ ...user, mobileNo: ev })
+
+        <Input
+         style={{borderColor:!isMobile ? 'red':'blue',borderWidth:1}} 
+         value={user.mobileNo} onChangeText={(text) => {
+          const enteredMobile=ValidationService.isMobile(text);
+          setIsMobile(enteredMobile);
+          setUser({ ...user, mobileNo: text })
         }} placeholder='Mobile No' />
+
+        {!isMobile && <Error title="Enter Valid Mobile number" />}
+
         <View style={{ marginTop: 6 }}>
-          <Button title="Register" onPress={registerHandler} />
+          {/* <Button title="Register" onPress={registerHandler} /> */}
+          <Button onPress={registerHandler} title="Register" />
 
         </View>
 
@@ -79,14 +107,6 @@ const styles = StyleSheet.create({
   h1: {
     fontSize: 24
   },
-  button: {
-
-  },
-  textbox: {
-    padding: 10,
-    lineHeight: 40,
-    fontSize: 18,
-    backgroundColor: 'white',
-    margin: 3
-  }
+  
+ 
 })

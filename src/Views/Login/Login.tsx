@@ -1,16 +1,21 @@
 
-import { Text, TextInput, View ,StyleSheet,Button, Pressable} from 'react-native'
+import { Text, TextInput, View ,StyleSheet, Pressable} from 'react-native'
 import React, { Component, useState } from 'react'
 import LoadingButton from '../../Components/LoadingButton/LoadingButton'
 import { User } from '../../models/User.model';
-
+import ValidationService from '../../Services/ValidationService/ValidationService';
+import Error from '../../Components/UI/Error/Error';
+import Input from '../../Components/UI/Input/Input';
+import Button from '../../Components/UI/Button/Button'
 const Login = (props) => {
 
 
   
-  const [email,setEmail]=useState('chandan');
+  const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
   const [counter,setCounter]=useState(0);
+
+  const [isEmail,setISEmail]=useState(true);
 
 const loginHandler=()=>{
 console.log('login handler invoked');
@@ -30,13 +35,20 @@ const onRegister=()=>{
     <View style={styles.container}>
          <Text style={styles.h1}> Login</Text>
          <View>
-             <TextInput style={styles.textbox} value={email}  onChangeText={(ev)=>{
+             <Input 
+             style={{borderColor:!isEmail ? 'red':'blue',borderWidth:1}} 
+             value={email}  
+             onChangeText={(ev)=>{
+              const enteredEmail=ValidationService.isEmail(ev);
+              setISEmail(enteredEmail)
               setEmail(ev);
               console.log(email)
              }} placeholder='enter email'/>
-             <TextInput  style={styles.textbox} value={password} secureTextEntry={true} placeholder='enter password' onChangeText={(ev)=>setPassword(ev)} />
+          {!isEmail &&  <Error title="Enter Valid Email" />}
+             <Input   value={password} secureTextEntry={true} placeholder='enter password' onChangeText={(ev)=>setPassword(ev)} />
               <View style={{marginTop:6}}>
-              <Button  title="Login"  onPress={loginHandler} />
+              {/* <Button  title="Login"  onPress={loginHandler} /> */}
+              <Button  onPress={loginHandler} title=""/>
               <Pressable style={{marginTop:10}} onPress={onRegister}>
                 <Text style={{color:'blue',textDecorationLine:'underline'}}>Register Here</Text>
               </Pressable>
@@ -66,15 +78,5 @@ const styles = StyleSheet.create({
     h1:{
         fontSize:24
     },  
-    button:{
-
-    },
-    textbox:{
-      padding:20,
-      height:10,
-      fontSize:12,
-      backgroundColor:'white',
-      marginVertical:10
-
-    }
+  
 })

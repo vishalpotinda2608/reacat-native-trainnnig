@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const Routes = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='login'>
+            <Stack.Navigator initialRouteName='register'>
                 <Stack.Screen name='login' component={Login} ></Stack.Screen>
                 <Stack.Screen name='register' component={Register}></Stack.Screen>
                 <Stack.Screen name="tabs" component={Tabs} options={{headerShown:false}}></Stack.Screen>
